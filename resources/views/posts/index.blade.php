@@ -1,20 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">ITI Blog</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/posts">All Posts <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
 <form action ="/posts/create">
 <div class="container">
   <div class="row">
@@ -30,6 +16,7 @@
     <tr>
       <th scope="col">#</th>
       <th scope="col">Title</th>
+      <th scope="col">Slug</th>
       <th scope="col">Created at</th>
       <th scope="col">Action</th>
     </tr>
@@ -40,6 +27,7 @@
       <tr>
       <th scope="row">{{$value['id']}}</th>
       <td>{{$value['title']}}</td>
+      <td>{{$value['slug']}}</td>
       <td>{{$value['created_at']->format('g:ia \o\n l jS F Y')}}</td>
       <td> 
       <a href="{{route('posts.view',['post' => $value['id'] ])}}" class="btn btn-info" >
@@ -52,7 +40,7 @@
       <form method="POST" action ="/posts/{{$value['id']}}/delete" class="d-inline">
       @csrf
       @method('DELETE')
-      <button onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</button>
+      <button onclick="return confirm('Are you sure that you want to delete?')" class="btn btn-danger">Delete</button>
       </form>
       </td>
       @endforeach
