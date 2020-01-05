@@ -31,3 +31,6 @@ Route::delete('/posts/{post}/delete','PostController@delete')->name('posts.delet
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');

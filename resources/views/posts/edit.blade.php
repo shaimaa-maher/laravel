@@ -22,9 +22,6 @@
   <div class="form-group">
     <label >description</label>
     <input type="text" class="form-control" value="{{$id['description']}}" name = "description" >
-    <!-- <label>Author</label>
-    <input type="text" name="posted_at" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-   -->
   </div>
   <button type="submit" name ="submit" class="btn btn-success">Update</button>
 

@@ -7,7 +7,6 @@ use Cviebrock\EloquentSluggable\Sluggable;
 
 class post extends Model
 {
-
     use Sluggable;
 
     public function sluggable()

@@ -39,8 +39,9 @@ class PostController extends Controller
     }
     
     
-    public function update($id)
+    public function update(StorePostRequest $request)
     {   
+        $id = $request->id;
         post::where('id',$id)
         ->update(['title'=>request()->title,'description'=>request()->description]);
         return redirect()->route('posts.index');
